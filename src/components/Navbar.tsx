@@ -1,9 +1,8 @@
 
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
-import { FilePlus, Users, FileText, Search, MessageSquare, Bell, User, Menu, X } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { FilePlus, Users, FileText, Search, MessageSquare, Bell, User, Menu, X, Archive, Briefcase } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -17,6 +16,7 @@ const Navbar = () => {
   const { user, logout } = useAuth();
   const [showSearch, setShowSearch] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const navigate = useNavigate();
   
   const getInitials = (name: string) => {
     return name
@@ -26,11 +26,17 @@ const Navbar = () => {
       .toUpperCase();
   };
 
+  const handleLogout = () => {
+    logout();
+    navigate("/");
+    setIsMenuOpen(false);
+  };
+
   return (
     <header className="relative">
       <nav className="bg-primary px-4 md:px-8 py-4 flex items-center justify-between">
         {/* Logo */}
-        <Link to="/" className="text-white text-xl font-bold">
+        <Link to={user ? "/dashboard" : "/"} className="text-white text-xl font-bold">
           Lancini
         </Link>
 
@@ -48,6 +54,20 @@ const Navbar = () => {
             <FileText className="w-4 h-4" />
             <span>Parcourir les projets</span>
           </Link>
+          
+          {/* Additional links for authenticated users */}
+          {user && (
+            <>
+              <Link to="/portfolio" className="nav-link">
+                <Archive className="w-4 h-4" />
+                <span>Mes réalisations</span>
+              </Link>
+              <Link to="/bids" className="nav-link">
+                <Briefcase className="w-4 h-4" />
+                <span>Mes offres</span>
+              </Link>
+            </>
+          )}
         </div>
 
         {/* Desktop Right Side */}
@@ -114,7 +134,7 @@ const Navbar = () => {
                     <Link to="/payment" className="cursor-pointer">Paiement</Link>
                   </DropdownMenuItem>
                   <DropdownMenuSeparator />
-                  <DropdownMenuItem onClick={logout} className="cursor-pointer">
+                  <DropdownMenuItem onClick={handleLogout} className="cursor-pointer">
                     Se déconnecter
                   </DropdownMenuItem>
                 </DropdownMenuContent>
@@ -193,6 +213,28 @@ const Navbar = () => {
               <span>Parcourir les projets</span>
             </Link>
             
+            {/* Additional mobile menu links for authenticated users */}
+            {user && (
+              <>
+                <Link 
+                  to="/portfolio" 
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Archive className="w-4 h-4" />
+                  <span>Mes réalisations</span>
+                </Link>
+                <Link 
+                  to="/bids" 
+                  className="nav-link"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  <Briefcase className="w-4 h-4" />
+                  <span>Mes offres</span>
+                </Link>
+              </>
+            )}
+            
             {user ? (
               <>
                 <div className="pt-3 border-t border-white/10">
@@ -221,10 +263,7 @@ const Navbar = () => {
                     <span>Mon Profil</span>
                   </Link>
                   <button 
-                    onClick={() => {
-                      logout();
-                      setIsMenuOpen(false);
-                    }} 
+                    onClick={handleLogout} 
                     className="w-full text-left nav-link text-red-300"
                   >
                     <span>Se déconnecter</span>
