@@ -20,8 +20,19 @@ import {
 import { Badge } from "@/components/ui/badge";
 import { Link } from "react-router-dom";
 
-// Mock bids data
-const initialBids = [
+// Define the type first to ensure initialBids conforms to it
+interface Bid {
+  id: number;
+  projectId: number;
+  projectTitle: string;
+  bidAmount: number;
+  status: "pending" | "accepted" | "rejected" | "in_progress" | "completed";
+  createdAt: string;
+  deadline: string;
+}
+
+// Mock bids data - explicitly typed as Bid[]
+const initialBids: Bid[] = [
   {
     id: 1,
     projectId: 101,
@@ -68,16 +79,6 @@ const initialBids = [
     deadline: "2025-04-15T23:59:59Z",
   },
 ];
-
-interface Bid {
-  id: number;
-  projectId: number;
-  projectTitle: string;
-  bidAmount: number;
-  status: "pending" | "accepted" | "rejected" | "in_progress" | "completed";
-  createdAt: string;
-  deadline: string;
-}
 
 const statusLabels = {
   pending: { label: "En attente", color: "bg-yellow-100 text-yellow-800" },
