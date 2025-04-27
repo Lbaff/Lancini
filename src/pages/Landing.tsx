@@ -6,12 +6,12 @@ const Landing = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="relative bg-gray-900 text-white overflow-hidden">
+      <section className="relative bg-gray-900 text-white overflow-hidden min-h-[90vh] lg:min-h-[90vh]">
         {/* Background Image with Overlay */}
         <div className="absolute inset-0 bg-black opacity-60 z-0"></div>
         <div 
           className="absolute inset-0 bg-center bg-cover z-0"
-          style={{ backgroundImage: "url('https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&q=80')" }}
+          style={{ backgroundImage: "url('https://sdmntprnorthcentralus.oaiusercontent.com/files/00000000-b8d4-622f-977f-eb0cbbddde93/raw?se=2025-04-27T15%3A22%3A38Z&sp=r&sv=2024-08-04&sr=b&scid=9a18e6d2-7195-53f6-b238-47d9bd85428e&skoid=d958ec58-d47c-4d2f-a9f2-7f3e03fdcf72&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-04-27T10%3A56%3A52Z&ske=2025-04-28T10%3A56%3A52Z&sks=b&skv=2024-08-04&sig=/GCRqJCB4QKnC1%2BM4o9CL6L5PxWJA/cJJYHnGZ0xB80%3D" }}
         ></div>
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 py-24 md:py-32 sm:px-6 lg:px-8 flex flex-col items-center text-center">

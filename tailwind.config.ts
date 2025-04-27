@@ -30,11 +30,11 @@ export default {
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         primary: {
-          DEFAULT: '#7974EC',
+          DEFAULT: '#2386C8',
           foreground: '#FFFFFF',
-          light: '#A6A3F5',
-          lighter: '#D4D3FA',
-          dark: '#5B57D1'
+          light: '#AFDDE5',
+          lighter: '#0FA4AF',
+          dark: '#024950'
         },
         secondary: {
           DEFAULT: 'hsl(var(--secondary))',
@@ -61,7 +61,7 @@ export default {
           foreground: 'hsl(var(--card-foreground))'
         },
         success: {
-          DEFAULT: '#2EC86A',
+          DEFAULT: '#024950',
           foreground: '#FFFFFF'
         }
       },

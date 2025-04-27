@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
-import { FilePlus, Users, FileText, Search, MessageSquare, Bell, User, Menu, X, Archive, Briefcase } from "lucide-react";
+import { Plus, Users, Boxes, Search, MessageSquare, Bell, User, Menu, X, Archive, Briefcase } from "lucide-react";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
   DropdownMenu,
@@ -43,16 +43,16 @@ const Navbar = () => {
         {/* Desktop Navigation */}
         <div className="hidden md:flex items-center space-x-6">
           <Link to="/post-project" className="nav-link">
-            <FilePlus className="w-4 h-4" />
-            <span>Publier un projet</span>
+            <Plus className="w-4 h-4" />
+            <span className="text-sm">Publier un projet</span>
           </Link>
           <Link to="/find-freelancers" className="nav-link">
             <Users className="w-4 h-4" />
-            <span>Trouver des freelances</span>
+            <span className="text-sm">Trouver des freelances</span>
           </Link>
           <Link to="/browse-projects" className="nav-link">
-            <FileText className="w-4 h-4" />
-            <span>Parcourir les projets</span>
+            <Boxes className="w-4 h-4" />
+            <span className="text-sm">Parcourir les projets</span>
           </Link>
           
           {/* Additional links for authenticated users */}
@@ -60,11 +60,11 @@ const Navbar = () => {
             <>
               <Link to="/portfolio" className="nav-link">
                 <Archive className="w-4 h-4" />
-                <span>Mes réalisations</span>
+                <span className="text-sm">Mes réalisations</span>
               </Link>
               <Link to="/bids" className="nav-link">
                 <Briefcase className="w-4 h-4" />
-                <span>Mes offres</span>
+                <span className="text-sm">Mes offres</span>
               </Link>
             </>
           )}
@@ -193,7 +193,7 @@ const Navbar = () => {
               className="nav-link"
               onClick={() => setIsMenuOpen(false)}
             >
-              <FilePlus className="w-4 h-4" />
+              <Plus className="w-4 h-4" />
               <span>Publier un projet</span>
             </Link>
             <Link 
@@ -209,7 +209,7 @@ const Navbar = () => {
               className="nav-link"
               onClick={() => setIsMenuOpen(false)}
             >
-              <FileText className="w-4 h-4" />
+              <Boxes className="w-4 h-4" />
               <span>Parcourir les projets</span>
             </Link>
             

@@ -219,17 +219,12 @@ const Dashboard = () => {
 
           {/* Platform Updates */}
           <Card>
-            <CardHeader>
-              <CardTitle className="text-lg">Mises à jour de la plateforme</CardTitle>
-            </CardHeader>
+            
             <CardContent>
               <div className="bg-primary/5 border-l-4 border-primary p-4 rounded-md">
-                <p className="text-sm">
+                <p className="text-sm text-primary font-medium">
                   Nous sommes heureux d'annoncer la réduction de la commission de la plateforme Lancini de 20% à 15% ainsi que le lancement d'un nouveau système d'adhésion.
                 </p>
-                <Link to="/announcements" className="text-primary hover:text-primary-dark text-sm font-medium mt-2 inline-block">
-                  Découvrez plus d'informations sur les mises à jour de Lancini
-                </Link>
               </div>
             </CardContent>
           </Card>
